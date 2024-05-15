@@ -35,6 +35,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(253, 253, 253));
 
         lblBienvenida.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        lblBienvenida.setForeground(new java.awt.Color(163, 163, 163));
         lblBienvenida.setText("Bienvenido,");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -53,7 +54,6 @@ public class Principal extends javax.swing.JFrame {
         tblAlbumes.setCellSelectionEnabled(true);
         tblAlbumes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblAlbumes.setGridColor(new java.awt.Color(0, 0, 0));
-        tblAlbumes.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tblAlbumes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblAlbumesMouseClicked(evt);
@@ -81,7 +81,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnLupa.setBackground(new java.awt.Color(255, 255, 255));
         btnLupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/loupe_751463.png"))); // NOI18N
         btnLupa.setBorder(null);
         btnLupa.addActionListener(new java.awt.event.ActionListener() {
