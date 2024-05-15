@@ -40,16 +40,25 @@ public class Principal extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        tblAlbumes.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
-        tblAlbumes.setForeground(new java.awt.Color(234, 234, 234));
+        tblAlbumes.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
         tblAlbumes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {"reputation", "2017"},
+                {"folklore", "2020"}
             },
             new String [] {
                 "Título", "Anio"
             }
         ));
+        tblAlbumes.setCellSelectionEnabled(true);
+        tblAlbumes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblAlbumes.setGridColor(new java.awt.Color(0, 0, 0));
+        tblAlbumes.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tblAlbumes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAlbumesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblAlbumes);
 
         lblAlbumes.setFont(new java.awt.Font("Gadugi", 0, 18)); // NOI18N
@@ -165,15 +174,25 @@ public class Principal extends javax.swing.JFrame {
         if (txtAnio.getText().equals("Filtro por anio")) {
             txtAnio.setText("");
             txtAnio.setForeground(Color.BLACK);
-            
+            //prueba
         }
 
 
     }//GEN-LAST:event_txtAnioFocusGained
 
     private void btnLupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupaActionPerformed
-        System.out.println("ola");
+        
+        
     }//GEN-LAST:event_btnLupaActionPerformed
+
+    private void tblAlbumesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlbumesMouseClicked
+        int row=tblAlbumes.getSelectedRow();
+        System.out.println(row);
+        String nombreAlbum=tblAlbumes.getValueAt(row, 0).toString();
+        AgregarCancion pantallaCancion=new AgregarCancion(nombreAlbum);
+        pantallaCancion.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_tblAlbumesMouseClicked
 
     public static void main(String args[]) {
 
