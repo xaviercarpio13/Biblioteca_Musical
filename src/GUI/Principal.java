@@ -44,12 +44,18 @@ public class Principal extends javax.swing.JFrame {
         tblAlbumes.setForeground(new java.awt.Color(234, 234, 234));
         tblAlbumes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null}
             },
             new String [] {
                 "Título", "Anio"
             }
         ));
+        tblAlbumes.setEnabled(false);
+        tblAlbumes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAlbumesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblAlbumes);
 
         lblAlbumes.setFont(new java.awt.Font("Gadugi", 0, 18)); // NOI18N
@@ -172,9 +178,15 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnioFocusGained
 
     private void btnLupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupaActionPerformed
-        System.out.println("ola");
-        System.out.println("Prueba de ramas");
+        
+        
     }//GEN-LAST:event_btnLupaActionPerformed
+
+    private void tblAlbumesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlbumesMouseClicked
+        AgregarCancion pantallaCancion=new AgregarCancion();
+        pantallaCancion.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_tblAlbumesMouseClicked
 
     public static void main(String args[]) {
 
