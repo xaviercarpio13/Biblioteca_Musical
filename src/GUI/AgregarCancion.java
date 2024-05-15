@@ -37,7 +37,7 @@ public class AgregarCancion extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         txtDuracion = new javax.swing.JTextField();
         lblDuracion = new javax.swing.JLabel();
-        txtTitulo1 = new javax.swing.JTextField();
+        txtTituloCan = new javax.swing.JTextField();
         txtListaCanciones = new java.awt.TextArea();
         btnAniadirCan = new javax.swing.JButton();
         btnAgregarCan = new javax.swing.JButton();
@@ -46,7 +46,6 @@ public class AgregarCancion extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
 
-        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/flecha-atras.png"))); // NOI18N
         btnVolver.setBorder(null);
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +97,6 @@ public class AgregarCancion extends javax.swing.JFrame {
             }
         });
 
-        btnAniadir.setBackground(new java.awt.Color(255, 255, 255));
         btnAniadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
         btnAniadir.setBorder(null);
 
@@ -205,10 +203,10 @@ public class AgregarCancion extends javax.swing.JFrame {
         lblDuracion.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         lblDuracion.setText("Duracion (min)");
 
-        txtTitulo1.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
-        txtTitulo1.addActionListener(new java.awt.event.ActionListener() {
+        txtTituloCan.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
+        txtTituloCan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitulo1ActionPerformed(evt);
+                txtTituloCanActionPerformed(evt);
             }
         });
 
@@ -220,14 +218,12 @@ public class AgregarCancion extends javax.swing.JFrame {
         txtListaCanciones.setFont(new java.awt.Font("Gadugi", 0, 12)); // NOI18N
         txtListaCanciones.setName(""); // NOI18N
 
-        btnAniadirCan.setBackground(new java.awt.Color(255, 255, 255));
         btnAniadirCan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
         btnAniadirCan.setBorder(null);
 
         btnAgregarCan.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
         btnAgregarCan.setText("Agregar");
 
-        btnVolverCan.setBackground(new java.awt.Color(255, 255, 255));
         btnVolverCan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/flecha-atras.png"))); // NOI18N
         btnVolverCan.setBorder(null);
         btnVolverCan.addActionListener(new java.awt.event.ActionListener() {
@@ -250,7 +246,10 @@ public class AgregarCancion extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblTitulo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtTituloCan, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(lblDuracion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
@@ -267,11 +266,6 @@ public class AgregarCancion extends javax.swing.JFrame {
                         .addGap(173, 173, 173)
                         .addComponent(btnAgregarCan)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(196, Short.MAX_VALUE)
-                    .addComponent(txtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(68, 68, 68)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,8 +278,10 @@ public class AgregarCancion extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnVolverCan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(65, 65, 65)
-                .addComponent(lblTitulo)
-                .addGap(39, 39, 39)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitulo)
+                    .addComponent(txtTituloCan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblDuracion)
@@ -293,14 +289,9 @@ public class AgregarCancion extends javax.swing.JFrame {
                     .addComponent(btnAniadirCan, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(txtListaCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(btnAgregarCan)
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(140, 140, 140)
-                    .addComponent(txtTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(252, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -344,9 +335,9 @@ public class AgregarCancion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDuracionActionPerformed
 
-    private void txtTitulo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitulo1ActionPerformed
+    private void txtTituloCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloCanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTitulo1ActionPerformed
+    }//GEN-LAST:event_txtTituloCanActionPerformed
 
     private void btnVolverCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverCanActionPerformed
         Principal pantalla=new Principal();
@@ -414,6 +405,6 @@ public class AgregarCancion extends javax.swing.JFrame {
     private javax.swing.JTextField txtDuracion;
     private java.awt.TextArea txtListaCanciones;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTitulo1;
+    private javax.swing.JTextField txtTituloCan;
     // End of variables declaration//GEN-END:variables
 }
