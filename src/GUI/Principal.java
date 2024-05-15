@@ -173,6 +173,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnLupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupaActionPerformed
         System.out.println("ola");
+        System.out.println("Prueba de ramas");
     }//GEN-LAST:event_btnLupaActionPerformed
 
     public static void main(String args[]) {
