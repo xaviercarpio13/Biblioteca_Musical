@@ -174,7 +174,7 @@ public class Principal extends javax.swing.JFrame {
         if (txtAnio.getText().equals("Filtro por anio")) {
             txtAnio.setText("");
             txtAnio.setForeground(Color.BLACK);
-            
+            //prueba
         }
 
 
