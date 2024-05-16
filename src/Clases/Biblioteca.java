@@ -44,7 +44,7 @@ public class Biblioteca {
         } catch (SQLException e) {
             System.out.println("Error  al agregar al Album" + e.getMessage());
         }
-       // albumes.add(dbo);
+        albumes.add(alb);
     }
     
     public Album buscarAlbumsPorAnio(int anio){
