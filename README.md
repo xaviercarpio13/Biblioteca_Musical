@@ -9,11 +9,9 @@ puede agregar canciones a álbumes ya existentes o crear un nuevo álbum.
 
 ## Tabla de Contenidos
 - [Instalación](#instalación)
+- [Dependencias](#dependencias)
 - [Uso](#uso)
-- [Contribución](#contribución)
-- [Licencia](#licencia)
-- [Autor(es)](#autor-es)
-- [Créditos](#créditos)
+- [Autor(es)](#autores)
 
 ## Instalación
 1. Clona el repositorio:
@@ -21,7 +19,7 @@ puede agregar canciones a álbumes ya existentes o crear un nuevo álbum.
     git clone https://github.com/usuario/proyecto.git](https://github.com/xaviercarpio13/Biblioteca_Musical.git
     ```
 
-##Dependencias
+## Dependencias
 1. Apache NetBeans 12.6 o superior
 
 
@@ -29,3 +27,10 @@ puede agregar canciones a álbumes ya existentes o crear un nuevo álbum.
 
 ```sh
 node app.js
+```
+
+## Autores
+ - Xavier Carpio
+ - Joselyn Pilco
+ - Kelly Sangoluisa
+
