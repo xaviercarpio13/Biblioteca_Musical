@@ -3,9 +3,9 @@ package GUI;
 
 import java.awt.Color;
 
-public class Principal extends javax.swing.JFrame {
+public class BuscarAlbum extends javax.swing.JFrame {
 
-    public Principal() {
+    public BuscarAlbum() {
         initComponents();
 
         btnAgregar.requestFocusInWindow();
@@ -65,7 +65,7 @@ public class Principal extends javax.swing.JFrame {
         lblAlbumes.setText("Últimos álbumes agregados");
 
         btnAgregar.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
-        btnAgregar.setText("Agregar album");
+        btnAgregar.setText("Buscar ");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -197,7 +197,7 @@ public class Principal extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new BuscarAlbum().setVisible(true);
             }
         });
     }

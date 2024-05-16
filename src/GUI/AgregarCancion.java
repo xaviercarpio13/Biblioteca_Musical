@@ -309,7 +309,7 @@ public class AgregarCancion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Principal pantalla=new Principal();
+        BuscarAlbum pantalla=new BuscarAlbum();
         pantalla.setVisible(true);
         dispose();
 
@@ -340,7 +340,7 @@ public class AgregarCancion extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTituloCanActionPerformed
 
     private void btnVolverCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverCanActionPerformed
-        Principal pantalla=new Principal();
+        BuscarAlbum pantalla=new BuscarAlbum();
         pantalla.setVisible(true);
         dispose();
 

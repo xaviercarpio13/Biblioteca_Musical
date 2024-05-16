@@ -51,7 +51,6 @@ public class AgregarAlbum extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
 
-        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/flecha-atras.png"))); // NOI18N
         btnVolver.setBorder(null);
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -60,8 +59,8 @@ public class AgregarAlbum extends javax.swing.JFrame {
             }
         });
 
-        lblAgregarAlbum.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
-        lblAgregarAlbum.setText("Agregar nuevo álbum");
+        lblAgregarAlbum.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
+        lblAgregarAlbum.setText("Añadir Album ");
 
         lblAnio.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         lblAnio.setText("Anio de lanzamiento");
@@ -103,7 +102,6 @@ public class AgregarAlbum extends javax.swing.JFrame {
             }
         });
 
-        btnAniadir.setBackground(new java.awt.Color(255, 255, 255));
         btnAniadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
         btnAniadir.setBorder(null);
 
@@ -143,7 +141,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
+                        .addGap(112, 112, 112)
                         .addComponent(lblAgregarAlbum))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
@@ -161,9 +159,9 @@ public class AgregarAlbum extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addGap(24, 24, 24)
                         .addComponent(lblAgregarAlbum)))
-                .addGap(28, 28, 28)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre1)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -183,7 +181,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
                         .addComponent(txtArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31)
                 .addComponent(txtArtistas, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btnAgregar)
                 .addGap(46, 46, 46))
         );
@@ -203,7 +201,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Principal pantalla=new Principal();
+        BuscarAlbum pantalla=new BuscarAlbum();
         pantalla.setVisible(true);
         dispose();
         
