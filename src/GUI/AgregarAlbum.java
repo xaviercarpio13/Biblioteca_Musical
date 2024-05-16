@@ -1,5 +1,7 @@
 package GUI;
 
+import Clases.Album;
+import Clases.Biblioteca;
 import java.util.ArrayList;
 
 
@@ -84,6 +86,11 @@ public class AgregarAlbum extends javax.swing.JFrame {
 
         btnAgregar.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         txtArtistas.setBackground(new java.awt.Color(255, 255, 255));
         txtArtistas.setColumns(1);
@@ -193,6 +200,19 @@ public class AgregarAlbum extends javax.swing.JFrame {
         txtArtistas.setText(textoDesplegado);
         
     }//GEN-LAST:event_btnAniadirActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        String nombreAlbum = txtNombre.getText().trim();
+        int anioLanzamiento = Integer.parseInt(txtAnio.getText().trim());
+        String Disquera = txtDisquera.getText().trim();
+        
+        //List<Canciones> 
+        //this.listaCanciones = listaCanciones;   
+        Album ab = new Album(nombreAlbum, anioLanzamiento, Disquera);
+        System.out.println(ab);
+        Biblioteca b = new Biblioteca();
+        b.agregarAlbum(ab);
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
 
     public static void main(String args[]) {

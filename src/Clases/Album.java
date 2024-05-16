@@ -8,11 +8,11 @@ public class Album {
     private String Disquera;
     private List<Cancion> listaCanciones;
 
-    public Album(String nombreAlbum, int anioLanzamiento, String Disquera, List<Cancion> listaCanciones) {
+    public Album(String nombreAlbum, int anioLanzamiento, String Disquera) {
         this.nombreAlbum = nombreAlbum;
         this.anioLanzamiento = anioLanzamiento;
         this.Disquera = Disquera;
-        this.listaCanciones = listaCanciones;
+      //  this.listaCanciones = listaCanciones;
     }
 
     public String getNombreAlbum() {
