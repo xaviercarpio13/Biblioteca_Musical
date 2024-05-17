@@ -45,6 +45,7 @@ public class AgregarCancion extends javax.swing.JFrame {
         btnVolverCan = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableCanciones = new javax.swing.JTable();
+        jLagregarCancion = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
@@ -202,12 +203,17 @@ public class AgregarCancion extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(450, 450));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAgregarCancion.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
+        lblAgregarCancion.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        lblAgregarCancion.setForeground(new java.awt.Color(255, 255, 255));
         lblAgregarCancion.setText("Agregar nueva cancion");
+        jPanel2.add(lblAgregarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 25, -1, -1));
 
-        lblTitulo.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        lblTitulo.setText("Titulo");
+        lblTitulo.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo.setText("Titulo  :");
+        jPanel2.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 109, -1, -1));
 
         txtDuracion.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
         txtDuracion.addActionListener(new java.awt.event.ActionListener() {
@@ -215,9 +221,12 @@ public class AgregarCancion extends javax.swing.JFrame {
                 txtDuracionActionPerformed(evt);
             }
         });
+        jPanel2.add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 165, 127, -1));
 
-        lblDuracion.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        lblDuracion.setText("Duracion (min)");
+        lblDuracion.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lblDuracion.setForeground(new java.awt.Color(51, 51, 51));
+        lblDuracion.setText("Duracion (min) :");
+        jPanel2.add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 164, -1, -1));
 
         txtTituloCan.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
         txtTituloCan.addActionListener(new java.awt.event.ActionListener() {
@@ -225,6 +234,7 @@ public class AgregarCancion extends javax.swing.JFrame {
                 txtTituloCanActionPerformed(evt);
             }
         });
+        jPanel2.add(txtTituloCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 110, 127, -1));
 
         btnAniadirCan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
         btnAniadirCan.setBorder(null);
@@ -233,10 +243,16 @@ public class AgregarCancion extends javax.swing.JFrame {
                 btnAniadirCanActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAniadirCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 164, 31, 22));
 
-        btnAgregarCan.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
+        btnAgregarCan.setBackground(new java.awt.Color(189, 205, 228));
+        btnAgregarCan.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        btnAgregarCan.setForeground(new java.awt.Color(51, 51, 51));
         btnAgregarCan.setText("Agregar");
+        btnAgregarCan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 204, 255), null, null));
+        jPanel2.add(btnAgregarCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 80, 30));
 
+        btnVolverCan.setBackground(new java.awt.Color(189, 205, 228));
         btnVolverCan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/flecha-atras.png"))); // NOI18N
         btnVolverCan.setBorder(null);
         btnVolverCan.addActionListener(new java.awt.event.ActionListener() {
@@ -244,7 +260,9 @@ public class AgregarCancion extends javax.swing.JFrame {
                 btnVolverCanActionPerformed(evt);
             }
         });
+        jPanel2.add(btnVolverCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 27, 25));
 
+        jTableCanciones.setBackground(new java.awt.Color(189, 205, 228));
         jTableCanciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -258,73 +276,19 @@ public class AgregarCancion extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTableCanciones);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVolverCan, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120)
-                        .addComponent(lblAgregarCancion))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(134, 134, 134)
-                                .addComponent(btnAgregarCan))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDuracion)
-                                    .addComponent(lblTitulo))
-                                .addGap(25, 25, 25)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTituloCan, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                                    .addComponent(txtDuracion))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAniadirCan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVolverCan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(lblAgregarCancion)))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTituloCan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitulo))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblDuracion)
-                                .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnAniadirCan, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addComponent(btnAgregarCan))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 193, 284));
+
+        jLagregarCancion.setBackground(new java.awt.Color(255, 102, 102));
+        jLagregarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/descarga (13).jpeg"))); // NOI18N
+        jPanel2.add(jLagregarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 370));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,6 +382,7 @@ public class AgregarCancion extends javax.swing.JFrame {
     private javax.swing.JButton btnAniadirCan;
     private javax.swing.JButton btnVolver;
     private javax.swing.JButton btnVolverCan;
+    private javax.swing.JLabel jLagregarCancion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
