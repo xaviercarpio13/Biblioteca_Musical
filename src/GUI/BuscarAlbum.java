@@ -25,7 +25,7 @@ public class BuscarAlbum extends javax.swing.JFrame {
         lblAlbumes = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         txtAnio = new javax.swing.JTextField();
-        btnLupa = new javax.swing.JButton();
+        btnLupa1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -81,11 +81,11 @@ public class BuscarAlbum extends javax.swing.JFrame {
             }
         });
 
-        btnLupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/loupe_751463.png"))); // NOI18N
-        btnLupa.setBorder(null);
-        btnLupa.addActionListener(new java.awt.event.ActionListener() {
+        btnLupa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/loupe_751463.png"))); // NOI18N
+        btnLupa1.setBorder(null);
+        btnLupa1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLupaActionPerformed(evt);
+                btnLupa1ActionPerformed(evt);
             }
         });
 
@@ -102,22 +102,25 @@ public class BuscarAlbum extends javax.swing.JFrame {
                         .addGap(77, 77, 77))
                     .addComponent(lblAlbumes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLupa)
-                .addGap(21, 21, 21))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(49, 49, 49))
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(311, 311, 311)
+                    .addComponent(btnLupa1)
+                    .addGap(21, 21, 21)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(lblAlbumes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLupa))
+                    .addComponent(btnLupa1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -125,15 +128,15 @@ public class BuscarAlbum extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 370, 280));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 350, 290));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/descarga (13).jpeg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 370));
 
-        jMenu1.setText("File");
+        jMenu1.setText("Salir");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Opciones");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -168,11 +171,6 @@ public class BuscarAlbum extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtAnioFocusGained
 
-    private void btnLupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupaActionPerformed
-        
-        
-    }//GEN-LAST:event_btnLupaActionPerformed
-
     private void tblAlbumesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlbumesMouseClicked
         int row=tblAlbumes.getSelectedRow();
         System.out.println(row);
@@ -181,6 +179,10 @@ public class BuscarAlbum extends javax.swing.JFrame {
         pantallaCancion.setVisible(true);
         dispose();
     }//GEN-LAST:event_tblAlbumesMouseClicked
+
+    private void btnLupa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLupa1ActionPerformed
 
     public static void main(String args[]) {
 
@@ -193,7 +195,7 @@ public class BuscarAlbum extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnLupa;
+    private javax.swing.JButton btnLupa1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

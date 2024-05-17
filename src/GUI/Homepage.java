@@ -11,11 +11,7 @@ public class Homepage extends javax.swing.JFrame {
 
     public Homepage() {
         initComponents();
-        this.setLocationRelativeTo(this);
-        ImageIcon cinefondo= new ImageIcon(getClass().getResource("/Recursos/fondo3.jpg"));
-        ImageIcon icon = new ImageIcon (cinefondo.getImage(
-        ).getScaledInstance(jLFondo.getWidth(),jLFondo.getHeight(),Image.SCALE_DEFAULT));
-        jLFondo.setIcon(icon);
+        
     }
 
     /**
@@ -82,6 +78,7 @@ public class Homepage extends javax.swing.JFrame {
         });
 
         jLFondo.setBackground(new java.awt.Color(255, 255, 255));
+        jLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/descarga (13).jpeg"))); // NOI18N
         jLFondo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
