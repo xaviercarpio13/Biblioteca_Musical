@@ -46,6 +46,12 @@ public class AgregarCancion extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableCanciones = new javax.swing.JTable();
         jLagregarCancion = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
@@ -236,6 +242,7 @@ public class AgregarCancion extends javax.swing.JFrame {
         });
         jPanel2.add(txtTituloCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 110, 127, -1));
 
+        btnAniadirCan.setBackground(new java.awt.Color(189, 205, 228));
         btnAniadirCan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
         btnAniadirCan.setBorder(null);
         btnAniadirCan.addActionListener(new java.awt.event.ActionListener() {
@@ -278,9 +285,42 @@ public class AgregarCancion extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 193, 284));
 
-        jLagregarCancion.setBackground(new java.awt.Color(255, 102, 102));
+        jLagregarCancion.setBackground(new java.awt.Color(204, 204, 255));
         jLagregarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/descarga (13).jpeg"))); // NOI18N
         jPanel2.add(jLagregarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 370));
+
+        jMenuBar1.setBackground(new java.awt.Color(189, 205, 228));
+
+        jMenu1.setForeground(new java.awt.Color(51, 51, 51));
+        jMenu1.setText("Salir");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setBackground(new java.awt.Color(189, 205, 228));
+        jMenu2.setForeground(new java.awt.Color(51, 51, 51));
+        jMenu2.setText("Opciones");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem1.setBackground(new java.awt.Color(189, 205, 228));
+        jMenuItem1.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jMenuItem1.setForeground(new java.awt.Color(51, 51, 51));
+        jMenuItem1.setText("Agregar-Album");
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jMenuItem2.setForeground(new java.awt.Color(51, 51, 51));
+        jMenuItem2.setText("Buscar-Album");
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem3.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jMenuItem3.setForeground(new java.awt.Color(51, 51, 51));
+        jMenuItem3.setText("Detalle-Album");
+        jMenu2.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -383,6 +423,12 @@ public class AgregarCancion extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JButton btnVolverCan;
     private javax.swing.JLabel jLagregarCancion;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -49,8 +49,10 @@ public class AgregarAlbum extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(128, 205, 228));
         setSize(new java.awt.Dimension(500, 500));
 
+        jPanel1.setBackground(new java.awt.Color(29, 79, 128));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblAgregarAlbum.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
@@ -123,6 +125,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
         });
         jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 80, 30));
 
+        btnAniadir.setBackground(new java.awt.Color(189, 205, 228));
         btnAniadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
         btnAniadir.setBorder(null);
         jPanel1.add(btnAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
@@ -148,7 +151,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 250, 210));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/descarga (13).jpeg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 310));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 340));
 
         jMenuBar1.setBackground(new java.awt.Color(189, 205, 228));
         jMenuBar1.setForeground(new java.awt.Color(102, 102, 102));
@@ -157,7 +160,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
         jMenu1.setText("Salir");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setForeground(new java.awt.Color(153, 153, 153));
+        jMenu2.setForeground(new java.awt.Color(102, 102, 102));
         jMenu2.setText("Opciones");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -171,7 +174,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
         jMenu2.add(jMenuItem1);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setForeground(new java.awt.Color(153, 153, 153));
+        jMenuItem2.setForeground(new java.awt.Color(102, 102, 102));
         jMenuItem2.setText("Buscar-Album");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +184,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setForeground(new java.awt.Color(153, 153, 153));
+        jMenuItem3.setForeground(new java.awt.Color(102, 102, 102));
         jMenuItem3.setText("Detalle-Album");
         jMenu2.add(jMenuItem3);
 
@@ -194,15 +197,14 @@ public class AgregarAlbum extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
