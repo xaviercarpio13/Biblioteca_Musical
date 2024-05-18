@@ -1,6 +1,8 @@
 
 package GUI;
 
+import Clases.OpcionesMenu;
+
 /**
  *
  * @author Joss
@@ -12,6 +14,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
      */
     public AgregarAlbum() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -40,10 +43,11 @@ public class AgregarAlbum extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMISalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMIAgregarCancion = new javax.swing.JMenuItem();
+        jMIBuscarAlbum = new javax.swing.JMenuItem();
+        jMIDetalleAlbum = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(128, 205, 228));
@@ -155,35 +159,50 @@ public class AgregarAlbum extends javax.swing.JFrame {
 
         jMenu1.setForeground(new java.awt.Color(102, 102, 102));
         jMenu1.setText("Salir");
+
+        jMISalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMISalir.setText("Salir");
+        jMISalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMISalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMISalir);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setForeground(new java.awt.Color(102, 102, 102));
         jMenu2.setText("Opciones");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setForeground(new java.awt.Color(102, 102, 102));
-        jMenuItem1.setText("Agregar-Canción");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMIAgregarCancion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMIAgregarCancion.setForeground(new java.awt.Color(102, 102, 102));
+        jMIAgregarCancion.setText("Agregar-Canción");
+        jMIAgregarCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMIAgregarCancionActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(jMIAgregarCancion);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setForeground(new java.awt.Color(102, 102, 102));
-        jMenuItem2.setText("Buscar-Album");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMIBuscarAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMIBuscarAlbum.setForeground(new java.awt.Color(102, 102, 102));
+        jMIBuscarAlbum.setText("Buscar-Album");
+        jMIBuscarAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMIBuscarAlbumActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu2.add(jMIBuscarAlbum);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setForeground(new java.awt.Color(102, 102, 102));
-        jMenuItem3.setText("Detalle-Album");
-        jMenu2.add(jMenuItem3);
+        jMIDetalleAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMIDetalleAlbum.setForeground(new java.awt.Color(102, 102, 102));
+        jMIDetalleAlbum.setText("Detalle-Album");
+        jMIDetalleAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIDetalleAlbumActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMIDetalleAlbum);
 
         jMenuBar1.add(jMenu2);
 
@@ -225,16 +244,24 @@ public class AgregarAlbum extends javax.swing.JFrame {
     }//GEN-LAST:event_txtArtistaActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jMIAgregarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAgregarCancionActionPerformed
+         OpcionesMenu.agregarCancion(this);
+    }//GEN-LAST:event_jMIAgregarCancionActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void jMIBuscarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBuscarAlbumActionPerformed
+     OpcionesMenu.buscarAlbum(this);
+    }//GEN-LAST:event_jMIBuscarAlbumActionPerformed
+
+    private void jMISalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISalirActionPerformed
+        OpcionesMenu.salir(this);
+    }//GEN-LAST:event_jMISalirActionPerformed
+
+    private void jMIDetalleAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIDetalleAlbumActionPerformed
+     OpcionesMenu.detalleAlbum(this);
+    }//GEN-LAST:event_jMIDetalleAlbumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,12 +302,13 @@ public class AgregarAlbum extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAniadir;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuItem jMIAgregarCancion;
+    private javax.swing.JMenuItem jMIBuscarAlbum;
+    private javax.swing.JMenuItem jMIDetalleAlbum;
+    private javax.swing.JMenuItem jMISalir;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTañadirAlbum;

@@ -1,6 +1,8 @@
 
 package GUI;
 
+import Clases.OpcionesMenu;
+
 public class AgregarCancion extends javax.swing.JFrame {
 
     private String nombre;
@@ -12,6 +14,7 @@ public class AgregarCancion extends javax.swing.JFrame {
     }
     public AgregarCancion() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -48,10 +51,11 @@ public class AgregarCancion extends javax.swing.JFrame {
         jLagregarCancion = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMISalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMIAgregarAlbum = new javax.swing.JMenuItem();
+        jMIBuscarAlbum = new javax.swing.JMenuItem();
+        jMIDetalleAlbum = new javax.swing.JMenuItem();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
@@ -257,6 +261,11 @@ public class AgregarCancion extends javax.swing.JFrame {
         btnAgregarCan.setForeground(new java.awt.Color(51, 51, 51));
         btnAgregarCan.setText("Agregar");
         btnAgregarCan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 204, 255), null, null));
+        btnAgregarCan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarCanActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnAgregarCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 80, 30));
 
         btnVolverCan.setBackground(new java.awt.Color(189, 205, 228));
@@ -293,30 +302,55 @@ public class AgregarCancion extends javax.swing.JFrame {
 
         jMenu1.setForeground(new java.awt.Color(51, 51, 51));
         jMenu1.setText("Salir");
+
+        jMISalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMISalir.setText("Salir");
+        jMISalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMISalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMISalir);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setBackground(new java.awt.Color(189, 205, 228));
         jMenu2.setForeground(new java.awt.Color(51, 51, 51));
         jMenu2.setText("Opciones");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setBackground(new java.awt.Color(189, 205, 228));
-        jMenuItem1.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jMenuItem1.setForeground(new java.awt.Color(51, 51, 51));
-        jMenuItem1.setText("Agregar-Album");
-        jMenu2.add(jMenuItem1);
+        jMIAgregarAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMIAgregarAlbum.setBackground(new java.awt.Color(189, 205, 228));
+        jMIAgregarAlbum.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jMIAgregarAlbum.setForeground(new java.awt.Color(51, 51, 51));
+        jMIAgregarAlbum.setText("Agregar-Album");
+        jMIAgregarAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIAgregarAlbumActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMIAgregarAlbum);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jMenuItem2.setForeground(new java.awt.Color(51, 51, 51));
-        jMenuItem2.setText("Buscar-Album");
-        jMenu2.add(jMenuItem2);
+        jMIBuscarAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMIBuscarAlbum.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jMIBuscarAlbum.setForeground(new java.awt.Color(51, 51, 51));
+        jMIBuscarAlbum.setText("Buscar-Album");
+        jMIBuscarAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIBuscarAlbumActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMIBuscarAlbum);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jMenuItem3.setForeground(new java.awt.Color(51, 51, 51));
-        jMenuItem3.setText("Detalle-Album");
-        jMenu2.add(jMenuItem3);
+        jMIDetalleAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMIDetalleAlbum.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
+        jMIDetalleAlbum.setForeground(new java.awt.Color(51, 51, 51));
+        jMIDetalleAlbum.setText("Detalle-Album");
+        jMIDetalleAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIDetalleAlbumActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMIDetalleAlbum);
 
         jMenuBar1.add(jMenu2);
 
@@ -380,6 +414,26 @@ public class AgregarCancion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAniadirCanActionPerformed
 
+    private void btnAgregarCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarCanActionPerformed
+
+    private void jMIAgregarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAgregarAlbumActionPerformed
+       OpcionesMenu.agregarAlbum(this);
+    }//GEN-LAST:event_jMIAgregarAlbumActionPerformed
+
+    private void jMIBuscarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBuscarAlbumActionPerformed
+      OpcionesMenu.buscarAlbum(this);
+    }//GEN-LAST:event_jMIBuscarAlbumActionPerformed
+
+    private void jMIDetalleAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIDetalleAlbumActionPerformed
+     OpcionesMenu.detalleAlbum(this);
+    }//GEN-LAST:event_jMIDetalleAlbumActionPerformed
+
+    private void jMISalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISalirActionPerformed
+       OpcionesMenu.salir(this);
+    }//GEN-LAST:event_jMISalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -423,12 +477,13 @@ public class AgregarCancion extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JButton btnVolverCan;
     private javax.swing.JLabel jLagregarCancion;
+    private javax.swing.JMenuItem jMIAgregarAlbum;
+    private javax.swing.JMenuItem jMIBuscarAlbum;
+    private javax.swing.JMenuItem jMIDetalleAlbum;
+    private javax.swing.JMenuItem jMISalir;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

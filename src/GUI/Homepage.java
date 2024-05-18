@@ -1,10 +1,13 @@
 
 package GUI;
 
+import Clases.OpcionesMenu;
+
 public class Homepage extends javax.swing.JFrame {
 
     public Homepage() {
         initComponents();
+        setLocationRelativeTo(null);
         
     }
 
@@ -79,56 +82,51 @@ public class Homepage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnDetalleAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgreAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(82, 82, 82)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAgreCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBuscarAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgreCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 53, Short.MAX_VALUE)))
+                    .addComponent(jLFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(183, Short.MAX_VALUE)
+                .addGap(108, 108, 108)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgreAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgreCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDetalleAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(164, 164, 164))
+                .addGap(114, 114, 114))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(47, Short.MAX_VALUE)
-                    .addComponent(jLFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(64, 64, 64)))
+                    .addComponent(jLFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 404, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgreAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgreAlbumActionPerformed
-        AgregarAlbum jfalbum = new AgregarAlbum();
-        jfalbum.setVisible(true);
+  OpcionesMenu.agregarAlbum(this);
     }//GEN-LAST:event_btnAgreAlbumActionPerformed
 
     private void btnAgreCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgreCancionActionPerformed
-        AgregarCancion jfcancion = new AgregarCancion ();
-        jfcancion.setVisible(true);
+           OpcionesMenu.agregarCancion(this);
     }//GEN-LAST:event_btnAgreCancionActionPerformed
 
     private void btnBuscarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAlbumActionPerformed
-        BuscarAlbum jfbuscarAlbum = new BuscarAlbum ();
-        jfbuscarAlbum.setVisible(true);
+    OpcionesMenu.buscarAlbum(this);
     }//GEN-LAST:event_btnBuscarAlbumActionPerformed
 
     private void btnDetalleAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleAlbumActionPerformed
-        DetalleAlbum jfdetalleAlbum = new DetalleAlbum ();
-        jfdetalleAlbum.setVisible(true);
+      OpcionesMenu.detalleAlbum(this);
     }//GEN-LAST:event_btnDetalleAlbumActionPerformed
 
     /**
