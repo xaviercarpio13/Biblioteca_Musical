@@ -1,12 +1,16 @@
 package GUI;
 
 import Clases.Album;
+import Clases.Artista;
 import Clases.Biblioteca;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class AgregarAlbum extends javax.swing.JFrame {
-    
+
+    Biblioteca b = new Biblioteca();
     private ArrayList <String> artistas=new ArrayList<>();
     private String textoDesplegado="";
    
@@ -185,7 +189,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Principal pantalla=new Principal();
+        Principal pantalla=new Principal(b);
         pantalla.setVisible(true);
         dispose();
         
@@ -205,13 +209,41 @@ public class AgregarAlbum extends javax.swing.JFrame {
         String nombreAlbum = txtNombre.getText().trim();
         int anioLanzamiento = Integer.parseInt(txtAnio.getText().trim());
         String Disquera = txtDisquera.getText().trim();
+        String nombreArtista = txtArtista.getText().trim();
         
-        //List<Canciones> 
-        //this.listaCanciones = listaCanciones;   
-        Album ab = new Album(nombreAlbum, anioLanzamiento, Disquera);
-        System.out.println(ab);
-        Biblioteca b = new Biblioteca();
-        b.agregarAlbum(ab);
+        
+        
+//        List<Canciones> 
+//        this.listaCanciones = listaCanciones;   
+//        Album ab = new Album(nombreAlbum, anioLanzamiento, Disquera,listaArtistas);
+//        System.out.println(ab);
+//        Biblioteca b = new Biblioteca();
+//        b.agregarAlbum(ab);
+//        
+//      
+//añado artista 
+    
+        Artista a = new Artista(nombreArtista);
+        List<Artista> artistas = new ArrayList<>(); // Inicializa la lista de artistas
+        artistas.add(a);
+        
+        
+        Album al = new Album(nombreAlbum, anioLanzamiento, Disquera, artistas);
+        try{
+            b.agregarAlbum(al);
+            JOptionPane.showInternalMessageDialog(null, "Registro guardado");
+            b.toString();
+            Principal pantalla=new Principal(b);
+            pantalla.setVisible(true);
+            dispose();
+        }catch(Exception e){
+            JOptionPane.showInternalMessageDialog(null, "Error");
+        }
+                
+        
+        
+        
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
 

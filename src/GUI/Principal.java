@@ -1,18 +1,95 @@
 package GUI;
 
 
+import Clases.Album;
+import Clases.Artista;
+import Clases.Biblioteca;
+import Clases.Usuario;
 import java.awt.Color;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class Principal extends javax.swing.JFrame {
 
+Biblioteca b = new Biblioteca();
+Usuario u = new Usuario();
+
     public Principal() {
         initComponents();
+        lblNombre.setText(u.getNombre().trim());
+        btnAgregar.requestFocusInWindow();
+        txtAnio.setForeground(Color.GRAY);
+        
+        //añado artista 
+        Artista a = new Artista("5 Seconds Of Summer");
+        List<Artista> artistas = new ArrayList<>(); // Inicializa la lista de artistas
+        artistas.add(a);
+        
+        //añado album
+        Album l = new Album("YoungBlood", 2018, "Sony", artistas);
+        Album dos = new Album("5sos5", 2018, "Sony", artistas);
+        Album tres = new Album("sgfg", 2013, "Sony", artistas);
+        List<Album> albumnes = albumnes = new ArrayList<>(); 
+        albumnes.add(l);
+        albumnes.add(dos);
+        albumnes.add(tres);
+         
+         
+        
+        //obtengo para imprimirlos  
+        DefaultTableModel m = new DefaultTableModel();
+        m.addColumn("Título");
+        m.addColumn("Año de Lanzamiento");
+        for (Album al: albumnes) {
+            Object[] fila = {al.getNombreAlbum(), al.getAnioLanzamiento()};
+            
+            m.addRow(fila);
+        }
+         tblAlbumes.setModel(m);
+
+    }
+    
+    public Principal(Biblioteca bl) {
+        initComponents();
+         lblNombre.setText(u.getNombre().trim());
+        b = bl;
 
         btnAgregar.requestFocusInWindow();
         txtAnio.setForeground(Color.GRAY);
-        //Configuración de la tabla de albumes
+        
+        //añado artista 
+        Artista a = new Artista("5 Seconds Of Summer");
+        List<Artista> artistas = new ArrayList<>(); // Inicializa la lista de artistas
+        artistas.add(a);
+        
+        //añado album
+        Album l = new Album("YoungBlood", 2018, "Sony", artistas);
+        Album dos = new Album("5sos5", 2018, "Sony", artistas);
+        Album tres = new Album("sgfg", 2013, "Sony", artistas);
+        b.agregarAlbum(l);
+        b.agregarAlbum(dos);
+        b.agregarAlbum(tres);
+        
+        
+        List<Album> albumnes = new ArrayList<>(); 
+        albumnes = b.obtenerTodosAlbums();
+        albumnes.toString();
+        //obtengo para imprimirlos  
+        DefaultTableModel m = new DefaultTableModel();
+        m.addColumn("Título");
+        m.addColumn("Año de Lanzamiento");
+        for (Album al: albumnes) {
+            Object[] fila = {al.getNombreAlbum(), al.getAnioLanzamiento()};
+            
+            m.addRow(fila);
+        }
+         tblAlbumes.setModel(m);
 
     }
+
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -27,6 +104,7 @@ public class Principal extends javax.swing.JFrame {
         btnAgregar = new javax.swing.JButton();
         txtAnio = new javax.swing.JTextField();
         btnLupa = new javax.swing.JButton();
+        lblNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 150));
@@ -126,6 +204,8 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
+        lblNombre.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -137,14 +217,18 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(lblBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblBienvenida)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(37, 37, 37)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(76, Short.MAX_VALUE))
@@ -181,6 +265,20 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnioFocusGained
 
     private void btnLupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupaActionPerformed
+        int anio = Integer.parseInt(txtAnio.getText().trim());
+        
+        List<Album> albumnesBusqueda = new ArrayList<>(); 
+        albumnesBusqueda = b.buscarAlbumsPorAnio(anio);
+        
+        DefaultTableModel m = new DefaultTableModel();
+        m.addColumn("Título");
+        m.addColumn("Año de Lanzamiento");
+        for (Album al: albumnesBusqueda) {
+            Object[] fila = {al.getNombreAlbum(), al.getAnioLanzamiento()};
+            
+            m.addRow(fila);
+        }
+         tblAlbumes.setModel(m);
         
         
     }//GEN-LAST:event_btnLupaActionPerformed
@@ -211,6 +309,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAlbumes;
     private javax.swing.JLabel lblBienvenida;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTable tblAlbumes;
     private javax.swing.JTextField txtAnio;
     // End of variables declaration//GEN-END:variables

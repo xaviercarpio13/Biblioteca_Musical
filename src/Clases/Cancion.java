@@ -6,12 +6,14 @@ import java.util.List;
 public class Cancion {
     private String titulo;
     private int duracion;
-    private List<Artista> listaArtistas;
 
-    public Cancion(String titulo, int duracion, List<Artista> listaArtistas) {
+    public Cancion() {
+    }
+
+    
+    public Cancion(String titulo, int duracion) {
         this.titulo = titulo;
         this.duracion = duracion;
-        this.listaArtistas = listaArtistas;
     }
 
     public String getTitulo() {
@@ -30,12 +32,10 @@ public class Cancion {
         this.duracion = duracion;
     }
 
-    public void setListaArtistas(List<Artista> listaArtistas) {
-        this.listaArtistas = listaArtistas;
+    @Override
+    public String toString() {
+        return "Titulo:" + titulo + "Duracion:" + duracion;
     }
+
     
-    public List<Artista> obtenerArtista(){
-        
-        return listaArtistas;
-    }
 }

@@ -1,13 +1,14 @@
-
 package Clases;
 
 public class Artista {
-    String nombre;
-    String nacionalidad;
 
-    public Artista(String nombre, String nacionalidad) {
+    String nombre;
+
+    public Artista() {
+    }
+
+    public Artista(String nombre) {
         this.nombre = nombre;
-        this.nacionalidad = nacionalidad;
     }
 
     public String getNombre() {
@@ -18,12 +19,9 @@ public class Artista {
         this.nombre = nombre;
     }
 
-    public String getNacionalidad() {
-        return nacionalidad;
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre ;
     }
 
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-    
 }

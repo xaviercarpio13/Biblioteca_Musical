@@ -55,7 +55,9 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Component id="lblBienvenida" min="-2" pref="194" max="-2" attributes="0"/>
+                          <Component id="lblBienvenida" min="-2" pref="111" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblNombre" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="69" max="32767" attributes="0"/>
@@ -66,7 +68,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblBienvenida" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lblBienvenida" max="32767" attributes="0"/>
+                      <Component id="lblNombre" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="76" max="32767" attributes="0"/>
@@ -233,6 +238,11 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="lblNombre">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel1"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
