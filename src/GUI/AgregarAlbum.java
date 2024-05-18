@@ -3,19 +3,21 @@ package GUI;
 import Clases.Album;
 import Clases.Artista;
 import Clases.Biblioteca;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
 
 public class AgregarAlbum extends javax.swing.JFrame {
 
     Biblioteca b = new Biblioteca();
-    private ArrayList <String> artistas=new ArrayList<>();
-    private String textoDesplegado="";
+   private ArrayList <String> artistas=new ArrayList<>();
    
     public AgregarAlbum() {
         initComponents();
+        lblArtistasComa.setVisible(false);
         
     }
 
@@ -36,7 +38,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
         txtArtista = new javax.swing.JTextField();
         btnAniadir = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
-        txtArtistas = new java.awt.TextArea();
+        lblArtistasComa = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 150));
@@ -78,6 +80,11 @@ public class AgregarAlbum extends javax.swing.JFrame {
         txtDisquera.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
 
         txtArtista.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
+        txtArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtArtistaActionPerformed(evt);
+            }
+        });
 
         btnAniadir.setBackground(new java.awt.Color(255, 255, 255));
         btnAniadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
@@ -96,13 +103,8 @@ public class AgregarAlbum extends javax.swing.JFrame {
             }
         });
 
-        txtArtistas.setBackground(new java.awt.Color(255, 255, 255));
-        txtArtistas.setColumns(1);
-        txtArtistas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        txtArtistas.setEditable(false);
-        txtArtistas.setEnabled(false);
-        txtArtistas.setFont(new java.awt.Font("Gadugi", 0, 12)); // NOI18N
-        txtArtistas.setName(""); // NOI18N
+        lblArtistasComa.setFont(new java.awt.Font("Tahoma", 2, 8)); // NOI18N
+        lblArtistasComa.setText("Ingresa los artistas separados por comas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,12 +134,13 @@ public class AgregarAlbum extends javax.swing.JFrame {
                         .addGap(48, 48, 48)
                         .addComponent(lblAgregarAlbum))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(txtArtistas, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(btnAgregar)))
                 .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblArtistasComa)
+                .addGap(96, 96, 96))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,15 +164,18 @@ public class AgregarAlbum extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDisquera)
                     .addComponent(txtDisquera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblArtistas)
-                        .addComponent(txtArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
-                .addComponent(txtArtistas, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(lblArtistasComa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblArtistas)
+                            .addComponent(txtArtista)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(btnAgregar)
                 .addGap(46, 46, 46))
         );
@@ -191,28 +197,27 @@ public class AgregarAlbum extends javax.swing.JFrame {
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         Principal pantalla=new Principal(b);
         pantalla.setVisible(true);
-        dispose();
-        
-        
+        dispose(); 
     }//GEN-LAST:event_btnVolverActionPerformed
-
-    private void btnAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadirActionPerformed
-
-        artistas.add(txtArtista.getText());
-        textoDesplegado=textoDesplegado+txtArtista.getText()+"\n";
-        txtArtista.setText("");
-        txtArtistas.setText(textoDesplegado);
-        
-    }//GEN-LAST:event_btnAniadirActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String nombreAlbum = txtNombre.getText().trim();
         int anioLanzamiento = Integer.parseInt(txtAnio.getText().trim());
         String Disquera = txtDisquera.getText().trim();
-        String nombreArtista = txtArtista.getText().trim();
+        
+        //obtener lista de artistas:
+        String linea = txtArtista.getText();
+        StringTokenizer tokens = new StringTokenizer(linea, ",");
+        List<Artista> listaArtistas = new ArrayList<>();  // Inicializa la lista de artistas
+        while (tokens.hasMoreTokens()) {  // Obtener y limpiar cada token
+            Artista a = new Artista(tokens.nextToken().trim());
+            listaArtistas.add(a);
+        }
         
         
-        
+
+       // String nombreArtista = txtArtista.getText().trim();
+               
 //        List<Canciones> 
 //        this.listaCanciones = listaCanciones;   
 //        Album ab = new Album(nombreAlbum, anioLanzamiento, Disquera,listaArtistas);
@@ -222,13 +227,8 @@ public class AgregarAlbum extends javax.swing.JFrame {
 //        
 //      
 //añado artista 
-    
-        Artista a = new Artista(nombreArtista);
-        List<Artista> artistas = new ArrayList<>(); // Inicializa la lista de artistas
-        artistas.add(a);
-        
-        
-        Album al = new Album(nombreAlbum, anioLanzamiento, Disquera, artistas);
+         
+        Album al = new Album(nombreAlbum, anioLanzamiento, Disquera, listaArtistas);
         try{
             b.agregarAlbum(al);
             JOptionPane.showInternalMessageDialog(null, "Registro guardado");
@@ -238,13 +238,21 @@ public class AgregarAlbum extends javax.swing.JFrame {
             dispose();
         }catch(Exception e){
             JOptionPane.showInternalMessageDialog(null, "Error");
+            System.out.println(e);
         }
-                
-        
-        
-        
-        
+     
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadirActionPerformed
+        lblArtistasComa.setVisible(true);
+        
+        Dimension size = new Dimension(txtArtista.getWidth(), (txtArtista.getHeight()+60));
+        txtArtista.setPreferredSize(size);
+    }//GEN-LAST:event_btnAniadirActionPerformed
+
+    private void txtArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtArtistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtArtistaActionPerformed
 
 
     public static void main(String args[]) {
@@ -288,11 +296,11 @@ public class AgregarAlbum extends javax.swing.JFrame {
     private javax.swing.JLabel lblAgregarAlbum;
     private javax.swing.JLabel lblAnio;
     private javax.swing.JLabel lblArtistas;
+    private javax.swing.JLabel lblArtistasComa;
     private javax.swing.JLabel lblDisquera;
     private javax.swing.JLabel lblNombre1;
     private javax.swing.JTextField txtAnio;
     private javax.swing.JTextField txtArtista;
-    private java.awt.TextArea txtArtistas;
     private javax.swing.JTextField txtDisquera;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

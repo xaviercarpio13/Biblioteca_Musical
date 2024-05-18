@@ -1,5 +1,6 @@
 package Clases;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Album {
@@ -10,6 +11,7 @@ public class Album {
     private List<Cancion> listaCanciones;
 
     public Album() {
+        this.listaCanciones = new ArrayList<>();
     }
 
     public Album(String nombreAlbum, int anioLanzamiento, String Disquera,List<Artista> listaArtistas) {
@@ -17,6 +19,13 @@ public class Album {
         this.anioLanzamiento = anioLanzamiento;
         this.Disquera = Disquera;
         this.listaArtistas = listaArtistas;
+    }
+    public Album(String nombreAlbum, int anioLanzamiento, String Disquera,List<Artista> listaArtistas ,List<Cancion> listaCanciones) {
+        this.nombreAlbum = nombreAlbum;
+        this.anioLanzamiento = anioLanzamiento;
+        this.Disquera = Disquera;
+        this.listaArtistas = listaArtistas;
+        this.listaCanciones = listaCanciones;
     }
 
     //getter and setters

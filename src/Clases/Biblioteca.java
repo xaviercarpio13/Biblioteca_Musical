@@ -11,9 +11,14 @@ import javax.swing.JOptionPane;
 public class Biblioteca {
     private List<Album> albumnes;
 
-    public Biblioteca() {
-         albumnes = new ArrayList<>();
+    public Biblioteca(List<Album> albumnes) {
+         this.albumnes = albumnes;
     }
+
+    public Biblioteca() {
+         this.albumnes = new ArrayList<>();
+    }
+    
 
     public List<Album> obtenerTodosAlbums() {
         return albumnes;
