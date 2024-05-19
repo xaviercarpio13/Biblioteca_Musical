@@ -1,14 +1,10 @@
 package GUI;
 
 import Clases.Album;
-import Clases.Artista;
 import Clases.Biblioteca;
 import Clases.Cancion;
-import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -25,13 +21,13 @@ public class InfoAlbum extends javax.swing.JFrame {
     public InfoAlbum(Album alb,Biblioteca bl) {
         initComponents();
         
+        lblAgregarAlbum.setText(alb.getNombreAlbum());
         //cargar nueva info  
         b = new Biblioteca();
         albumnes = bl.obtenerTodosAlbums();
         b.setAlbumnes(albumnes);
         albumnes = b.obtenerTodosAlbums();
         al = alb;
-        //jTextField1.setText(al.toString());
         
         
         
@@ -64,7 +60,6 @@ public class InfoAlbum extends javax.swing.JFrame {
         lblAgregarAlbum = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAlbum = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 150));
@@ -100,14 +95,7 @@ public class InfoAlbum extends javax.swing.JFrame {
         tblAlbum.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblAlbum.setGridColor(new java.awt.Color(0, 0, 0));
         tblAlbum.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        tblAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblAlbumMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tblAlbum);
-
-        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,10 +110,8 @@ public class InfoAlbum extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
-                        .addComponent(lblAgregarAlbum)
-                        .addGap(73, 73, 73)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(lblAgregarAlbum)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,9 +122,7 @@ public class InfoAlbum extends javax.swing.JFrame {
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAgregarAlbum))))
+                        .addComponent(lblAgregarAlbum)))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -157,10 +141,6 @@ public class InfoAlbum extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tblAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlbumMouseClicked
-
-    }//GEN-LAST:event_tblAlbumMouseClicked
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         Principal pantalla=new Principal(b);
@@ -207,7 +187,6 @@ public class InfoAlbum extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAgregarAlbum;
     private javax.swing.JTable tblAlbum;
     // End of variables declaration//GEN-END:variables

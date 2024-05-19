@@ -61,26 +61,21 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblAnio" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNombre1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDisquera" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblArtistas" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblAnio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNombre1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblDisquera" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblArtistas" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="txtArtista" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnAniadir" min="-2" pref="31" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="txtDisquera" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="txtNombre" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <Component id="txtAnio" min="-2" pref="157" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtArtista" min="-2" pref="157" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnAniadir" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jTextField1" min="-2" pref="346" max="-2" attributes="0"/>
+                              <Component id="txtDisquera" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="txtNombre" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="txtAnio" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -146,9 +141,7 @@
                           <Component id="btnAniadir" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                  <EmptySpace pref="114" max="32767" attributes="0"/>
                   <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
@@ -239,9 +232,6 @@
               <Font name="Gadugi" size="11" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtArtistaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAniadir">
           <Properties>
@@ -276,11 +266,6 @@
               <Font name="Tahoma" size="8" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ingresa los artistas separados por comas"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
         </Component>
       </SubComponents>

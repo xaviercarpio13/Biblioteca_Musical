@@ -26,7 +26,6 @@ public class AgregarAlbum extends javax.swing.JFrame {
         albumnes = bl.obtenerTodosAlbums();
         b.setAlbumnes(albumnes);
         albumnes = b.obtenerTodosAlbums();
-        jTextField1.setText(b.toString());
         
         
        lblArtistasComa.setVisible(false);
@@ -50,7 +49,6 @@ public class AgregarAlbum extends javax.swing.JFrame {
         btnAniadir = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         lblArtistasComa = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 150));
@@ -92,11 +90,6 @@ public class AgregarAlbum extends javax.swing.JFrame {
         txtDisquera.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
 
         txtArtista.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
-        txtArtista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtArtistaActionPerformed(evt);
-            }
-        });
 
         btnAniadir.setBackground(new java.awt.Color(255, 255, 255));
         btnAniadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
@@ -118,8 +111,6 @@ public class AgregarAlbum extends javax.swing.JFrame {
         lblArtistasComa.setFont(new java.awt.Font("Tahoma", 2, 8)); // NOI18N
         lblArtistasComa.setText("Ingresa los artistas separados por comas");
 
-        jTextField1.setText("jTextField1");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -129,22 +120,19 @@ public class AgregarAlbum extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAnio)
+                            .addComponent(lblNombre1)
+                            .addComponent(lblDisquera)
+                            .addComponent(lblArtistas))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAnio)
-                                    .addComponent(lblNombre1)
-                                    .addComponent(lblDisquera)
-                                    .addComponent(lblArtistas))
-                                .addGap(36, 36, 36)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtDisquera, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDisquera, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,9 +180,7 @@ public class AgregarAlbum extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(btnAgregar)
                 .addGap(46, 46, 46))
         );
@@ -230,11 +216,9 @@ public class AgregarAlbum extends javax.swing.JFrame {
         //creo el album
         Album al = new Album(nombreAlbum, anioLanzamiento, Disquera, artistas);
         try{
-           // albumnes.add(al);
             b.agregarAlbum(al);
             JOptionPane.showInternalMessageDialog(null, "Registro guardado");
             
-            jTextField1.setText(b.toString());
             Principal pantalla=new Principal(b);
             pantalla.setVisible(true);
             dispose();
@@ -249,10 +233,6 @@ public class AgregarAlbum extends javax.swing.JFrame {
         Dimension size = new Dimension(txtArtista.getWidth(), (txtArtista.getHeight()+60));
         txtArtista.setPreferredSize(size);
     }//GEN-LAST:event_btnAniadirActionPerformed
-
-    private void txtArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtArtistaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtArtistaActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         Principal pantalla=new Principal(this.b);
@@ -299,7 +279,6 @@ public class AgregarAlbum extends javax.swing.JFrame {
     private javax.swing.JButton btnAniadir;
     private javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAgregarAlbum;
     private javax.swing.JLabel lblAnio;
     private javax.swing.JLabel lblArtistas;
