@@ -5,98 +5,40 @@ import Clases.Album;
 import Clases.Artista;
 import Clases.Biblioteca;
 import Clases.Cancion;
-import Clases.Usuario;
 import java.awt.Color;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Principal extends javax.swing.JFrame {
 
-List<Album> albumnes = albumnes = new ArrayList<>(); 
+List<Album> albumnes = new ArrayList<>(); 
 List<Artista> artistas = new ArrayList<>();
 Biblioteca b;
 Album buscado = new Album();
-
-
 String nombreUsuario = "Xavier";
 
     public Principal() {
         initComponents();
-        lblNombre.setText(nombreUsuario.trim());
         
-        btnAgregar.requestFocusInWindow();
-        txtAnio.setForeground(Color.GRAY);
+        configurarVistaInicial();
+        agregarInfoInicial();  
         
-        //añado artista 
-//        Artista a = new Artista("5 Seconds Of Summer");
-//        List<Artista> artistas = new ArrayList<>(); // Inicializa la lista de artistas
-//        artistas.add(a);
-//        
-//        //añado album
-//        Album l = new Album("YoungBlood", 2018, "Sony", artistas);
-//        Album dos = new Album("5sos5", 2018, "Sony", artistas);
-//        Album tres = new Album("sgfg", 2013, "Sony", artistas);
-//        List<Album> albumnes = albumnes = new ArrayList<>(); 
-//        albumnes.add(l);
-//        albumnes.add(dos);
-//        albumnes.add(tres);
-         
-         agregarInfoInicial();  
-        // b.agregarAlbum(alb);
-        
-        //Imprimirlos  la lista de albumnes existentes
-        DefaultTableModel m = new DefaultTableModel();
-        m.addColumn("Título");
-        m.addColumn("Año de Lanzamiento");
-        for (Album al: albumnes) {
-            Object[] fila = {al.getNombreAlbum(), al.getAnioLanzamiento()};            
-            m.addRow(fila);
-        }
-         tblAlbumes.setModel(m);
+        cargarTabla(albumnes);
+        //jTextField1.setText(b.toString());
 
     }
     
     public Principal(Biblioteca bl) {
         initComponents();
-        lblNombre.setText(nombreUsuario.trim());
-        b = bl;
-
-        btnAgregar.requestFocusInWindow();
-        txtAnio.setForeground(Color.GRAY);
         
-        //añado artista 
-//        Artista a = new Artista("5 Seconds Of Summer");
-//        List<Artista> artistas = new ArrayList<>(); // Inicializa la lista de artistas
-//        artistas.add(a);
-//        
-//        //añado album
-//        Album l = new Album("YoungBlood", 2018, "Sony", artistas);
-//        Album dos = new Album("5sos5", 2018, "Sony", artistas);
-//        Album tres = new Album("sgfg", 2013, "Sony", artistas);
-//        b.agregarAlbum(l);
-//        b.agregarAlbum(dos);
-//        b.agregarAlbum(tres);
-        agregarInfoInicial();        
-
+        configurarVistaInicial();
+        albumnes = bl.obtenerTodosAlbums();
         
-     //   List<Album> albumnes = new ArrayList<>(); 
-        albumnes = b.obtenerTodosAlbums();
-        albumnes.toString();
-        
-        //obtengo para imprimirlos  
-        DefaultTableModel m = new DefaultTableModel();
-        m.addColumn("Título");
-        m.addColumn("Año de Lanzamiento");
-        for (Album al: albumnes) {
-            Object[] fila = {al.getNombreAlbum(), al.getAnioLanzamiento()};
-            
-            m.addRow(fila);
-        }
-         tblAlbumes.setModel(m);
-
+        jTextField1.setText(albumnes.toString());
+        b = new Biblioteca(albumnes); 
+        cargarTabla(albumnes);
+        guardarBiblioteca();
     }
 
     
@@ -117,7 +59,9 @@ String nombreUsuario = "Xavier";
         btnVolver = new javax.swing.JButton();
         btnAgregarCancion = new javax.swing.JButton();
         btnVerInfo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 150));
@@ -130,6 +74,16 @@ String nombreUsuario = "Xavier";
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
+        jPanel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel2KeyPressed(evt);
+            }
+        });
 
         tblAlbumes.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
         tblAlbumes.setModel(new javax.swing.table.DefaultTableModel(
@@ -164,7 +118,6 @@ String nombreUsuario = "Xavier";
         });
 
         txtAnio.setFont(new java.awt.Font("Gadugi", 0, 10)); // NOI18N
-        txtAnio.setText("Filtro por año");
         txtAnio.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         txtAnio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -209,6 +162,8 @@ String nombreUsuario = "Xavier";
             }
         });
 
+        jLabel1.setText("Filtro por año:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -217,6 +172,8 @@ String nombreUsuario = "Xavier";
                 .addGap(41, 41, 41)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnLupa)
@@ -232,7 +189,7 @@ String nombreUsuario = "Xavier";
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAgregarCancion)
                     .addComponent(btnVerInfo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +199,9 @@ String nombreUsuario = "Xavier";
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnVolver)
-                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
                     .addComponent(btnLupa))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -259,7 +218,10 @@ String nombreUsuario = "Xavier";
                 .addContainerGap())
         );
 
+        lblNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblNombre.setText("jLabel1");
+
+        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -270,6 +232,8 @@ String nombreUsuario = "Xavier";
                 .addComponent(lblBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
@@ -280,10 +244,14 @@ String nombreUsuario = "Xavier";
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblBienvenida)
+                        .addComponent(lblNombre))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -303,18 +271,13 @@ String nombreUsuario = "Xavier";
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        AgregarAlbum pantalla=new AgregarAlbum();
+        AgregarAlbum pantalla=new AgregarAlbum(b);
+       // jTextField1.setText(b.toString());
         pantalla.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void txtAnioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAnioFocusGained
-        if (txtAnio.getText().equals("Filtro por anio")) {
-            txtAnio.setText("");
-            txtAnio.setForeground(Color.BLACK);
-            //prueba
-        }
-
 
     }//GEN-LAST:event_txtAnioFocusGained
 
@@ -322,56 +285,23 @@ String nombreUsuario = "Xavier";
         int anio = Integer.parseInt(txtAnio.getText().trim());
         
         List<Album> albumnesBusqueda = new ArrayList<>(); 
-        
         albumnesBusqueda = b.buscarAlbumsPorAnio(anio);
-        
-        System.out.println(b.buscarAlbumsPorAnio(anio));
-        
-        DefaultTableModel m = new DefaultTableModel();
-        m.addColumn("Título");
-        m.addColumn("Año de Lanzamiento");
-        for (Album al: albumnesBusqueda) {
-            Object[] fila = {al.getNombreAlbum(), al.getAnioLanzamiento()};
-            
-            m.addRow(fila);
-        }
-         tblAlbumes.setModel(m);
-        
+        cargarTabla(albumnesBusqueda);
     }//GEN-LAST:event_btnLupaActionPerformed
 
     private void tblAlbumesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlbumesMouseClicked
-        
-//       int opcion = JOptionPane.showConfirmDialog(null, "", "", JOptionPane.);
-//       }while (opcion==JOptionPane.YES_OPTION);        
-//        JOptionPane.showMessageDialog(null,salida, "Resultados", JOptionPane.INFORMATION_MESSAGE);
-    //}   
-        
-        
-        int fila=tblAlbumes.getSelectedRow();
-        String nombreAlbum = tblAlbumes.getValueAt(fila, 0).toString();
+       
+        int aux = tblAlbumes.getSelectedRow();
+        String nombreAlbum = tblAlbumes.getValueAt(aux, 0).toString();
         buscado = b.obtenerAlbum(nombreAlbum);
-        
-        
-        //AgregarCancion pantallaCancion=new AgregarCancion(nombreAlbum);
-        //pantallaCancion.setVisible(true);
-        //dispose();
+        if (aux != -1) {
+            btnAgregarCancion.setVisible(true);
+            btnVerInfo.setVisible(true);
+        }    
     }//GEN-LAST:event_tblAlbumesMouseClicked
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-//        List<Album> albumnes = new ArrayList<>(); 
-//        albumnes = b.obtenerTodosAlbums();
-//        albumnes.toString();
-        //obtengo para imprimirlos  
-        DefaultTableModel m = new DefaultTableModel();
-        m.addColumn("Título");
-        m.addColumn("Año de Lanzamiento");
-        for (Album al: albumnes) {
-            Object[] fila = {al.getNombreAlbum(), al.getAnioLanzamiento()};
-            
-            m.addRow(fila);
-        }
-         tblAlbumes.setModel(m);
-        //txtAnio.setText("Filtro por año");
+       cargarTabla(albumnes);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void txtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioActionPerformed
@@ -379,19 +309,42 @@ String nombreUsuario = "Xavier";
     }//GEN-LAST:event_txtAnioActionPerformed
 
     private void btnVerInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerInfoActionPerformed
-        InfoAlbum ia = new InfoAlbum(buscado);
+        InfoAlbum ia = new InfoAlbum(buscado,b);
         ia.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVerInfoActionPerformed
 
     private void btnAgregarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCancionActionPerformed
-        AgregarCancion pantallaCancion=new AgregarCancion(buscado);
+        AgregarCancion pantallaCancion=new AgregarCancion(buscado,b);
         pantallaCancion.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAgregarCancionActionPerformed
 
-    private void iniciarConstructor(){
-        
+    private void jPanel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2KeyPressed
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+
+    }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void configurarVistaInicial(){
+        lblNombre.setText(nombreUsuario.trim());
+        btnAgregar.requestFocusInWindow();
+        txtAnio.setForeground(Color.GRAY);
+        btnAgregarCancion.setVisible(false);
+        btnVerInfo.setVisible(false);
+    }
+    
+    private void cargarTabla(List<Album> lista){
+        DefaultTableModel m = new DefaultTableModel();
+        m.addColumn("Título");
+        m.addColumn("Año de Lanzamiento");
+        for (Album al: lista) {
+            Object[] fila = {al.getNombreAlbum(), al.getAnioLanzamiento()};
+            m.addRow(fila);
+        }
+         tblAlbumes.setModel(m);
     }
     
     private void agregarInfoInicial(){
@@ -399,6 +352,7 @@ String nombreUsuario = "Xavier";
         Artista a = new Artista("5 Seconds Of Summer");
         //List<Artista> artistas = new ArrayList<>(); // Inicializa la lista de artistas
         artistas.add(a);
+         
         
         //añado dos canciones
         Cancion c1 = new Cancion("vapor", 120);
@@ -409,12 +363,15 @@ String nombreUsuario = "Xavier";
         
         
         //añado album
+        
         Album l = new Album("YoungBlood", 2018, "Sony", artistas);
         Album dos = new Album("5sos5", 2018, "Sony", artistas);
         Album tres = new Album("sgfg", 2013, "Sony", artistas,listaCanciones);
-        
+        //albumnes = new ArrayList<>();
         //tres.agregarCancion(c1);
         //tres.agregarCancion(c2);
+        
+        
         
         //List<Album> albumnes = albumnes = new ArrayList<>(); 
         albumnes.add(l);
@@ -422,11 +379,17 @@ String nombreUsuario = "Xavier";
         albumnes.add(tres);
         
         
-        
-        b = new Biblioteca(albumnes);
-        
-        
+        b = new Biblioteca();
+        b.setAlbumnes(albumnes);
+        jTextField1.setText(b.toString());
     }
+    
+    public void guardarBiblioteca(){
+        b = new Biblioteca();
+        b.setAlbumnes(albumnes);
+        jTextField1.setText(b.toString());
+    };
+    
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -442,9 +405,11 @@ String nombreUsuario = "Xavier";
     private javax.swing.JButton btnLupa;
     private javax.swing.JButton btnVerInfo;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAlbumes;
     private javax.swing.JLabel lblBienvenida;
     private javax.swing.JLabel lblNombre;

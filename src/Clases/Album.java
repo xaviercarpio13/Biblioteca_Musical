@@ -12,19 +12,21 @@ public class Album {
 
     public Album() {
         this.listaCanciones = new ArrayList<>();
+        this.listaArtistas = new ArrayList<>();
     }
 
     public Album(String nombreAlbum, int anioLanzamiento, String Disquera,List<Artista> listaArtistas) {
         this.nombreAlbum = nombreAlbum;
         this.anioLanzamiento = anioLanzamiento;
         this.Disquera = Disquera;
-        this.listaArtistas = listaArtistas;
+        this.listaArtistas = new ArrayList<>();
     }
+    
     public Album(String nombreAlbum, int anioLanzamiento, String Disquera,List<Artista> listaArtistas ,List<Cancion> listaCanciones) {
         this.nombreAlbum = nombreAlbum;
         this.anioLanzamiento = anioLanzamiento;
         this.Disquera = Disquera;
-        this.listaArtistas = listaArtistas;
+        this.listaArtistas = new ArrayList<>();
         this.listaCanciones = listaCanciones;
     }
 
@@ -54,8 +56,17 @@ public class Album {
     }
 
     public void setListaCanciones(List<Cancion> listaCanciones) {
-        this.listaCanciones = listaCanciones;
+        this.listaCanciones = new ArrayList<>();
+
     }
+
+    public void setListaArtistas(List<Artista> listaArtistas) {
+        this.listaArtistas = new ArrayList<>();
+    }
+    
+    
+    
+    
     
     //metodos de clase
     public void agregarCancion(Cancion cancion) {
@@ -74,6 +85,7 @@ public class Album {
             }
         }
         return false;
+
     }
     
     public List<Artista> obtenerListaArtistas() {

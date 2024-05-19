@@ -12,7 +12,7 @@ public class Biblioteca {
     private List<Album> albumnes;
 
     public Biblioteca(List<Album> albumnes) {
-         this.albumnes = albumnes;
+        this.albumnes = new ArrayList<>();
     }
 
     public Biblioteca() {
@@ -25,7 +25,7 @@ public class Biblioteca {
     }
 
     public void setAlbumnes(List<Album> albumnes) {
-        this.albumnes = albumnes;
+        this.albumnes = new ArrayList<>(albumnes);
     }
     
     public Album obtenerAlbum(String nombre) {
@@ -39,24 +39,7 @@ public class Biblioteca {
 
     
     public void agregarAlbum(Album alb){
-//        try {
-//            Connection cn = Conexion.getConection();
-//            String query = "INSERT INTO album (nombreAlbum, anioLanzamientoAlbum, disqueraAlbum) VALUES (?,?,?)";
-//
-//            PreparedStatement insertar = cn.prepareStatement(query);
-//
-//            insertar.setString(1, alb.getNombreAlbum());
-//            insertar.setInt(2, alb.getAnioLanzamiento());
-//            insertar.setString(3, alb.getDisquera());
-//
-//            insertar.executeUpdate();
-//            insertar.close();
-//
-//            JOptionPane.showInternalMessageDialog(null, "Registro guardado");
-//
-//        } catch (SQLException e) {
-//            System.out.println("Error  al agregar al Album" + e.getMessage());
-//        }
+      
         this.albumnes.add(alb);
     }
     
@@ -69,5 +52,12 @@ public class Biblioteca {
         }
         return list;
     }
+
+    @Override
+    public String toString() {
+        return "lista albumnes=" + albumnes ;
+    }
+    
+    
 }
 

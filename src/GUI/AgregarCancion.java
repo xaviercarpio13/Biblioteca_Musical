@@ -11,13 +11,21 @@ import javax.swing.JOptionPane;
 public class AgregarCancion extends javax.swing.JFrame {
     Album al = new Album();
     List<Cancion> c = new ArrayList<>();
-    Biblioteca b = new Biblioteca();
+    Biblioteca b;
+    List<Album> albumnes = new ArrayList<>();
    
     
-    public AgregarCancion(Album alb) {
+    public AgregarCancion(Album alb,Biblioteca bl) {
         initComponents();
+        //obtengo info
+        lblnombreAlbum.setText(alb.getNombreAlbum());
         
+        b = new Biblioteca();
+        albumnes = bl.obtenerTodosAlbums();
+        b.setAlbumnes(albumnes);
+        albumnes = b.obtenerTodosAlbums();
         al = alb;
+        
         c = al.obtenerListaCanciones();
         jTextArea1.setText(al.toString());
         //c = al.obtenerListaCanciones();
@@ -362,16 +370,18 @@ public class AgregarCancion extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTituloActionPerformed
 
     private void btnVolverCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverCanActionPerformed
-        Principal pantalla=new Principal();
+        Principal pantalla=new Principal(b);
         pantalla.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_btnVolverCanActionPerformed
 
     private void btnAgregarCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCanActionPerformed
+        //datos
         String nombreCancion = txtTitulo.getText().trim();
         int duracion = Integer.parseInt(txtDuracion.getText().trim());
         
+        //creo cancion
         Cancion cc = new Cancion(nombreCancion, duracion);
         //c.add(cc);
         try{
@@ -380,16 +390,17 @@ public class AgregarCancion extends javax.swing.JFrame {
                 txtTitulo.setText("");
                 txtDuracion.setText("");
             }else{
-               c.add(cc);
+                c.add(cc);
                 al.agregarCancion(cc);
                 jTextArea1.setText(al.toString());
                 JOptionPane.showInternalMessageDialog(null, "Cancion guardada");
-                Principal pantalla=new Principal(b);
-                pantalla.setVisible(true);
-                dispose();
+               // Principal pantalla=new Principal(b);
+               // pantalla.setVisible(true);
+               // dispose();
             }
         }catch(Exception e){
             JOptionPane.showInternalMessageDialog(null, "Error");
+            jTextArea1.setText(e.toString());
             
         }
         
