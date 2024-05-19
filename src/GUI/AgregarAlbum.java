@@ -1,3 +1,4 @@
+
 package GUI;
 
 import Clases.Album;
@@ -36,52 +37,60 @@ public class AgregarAlbum extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnVolver = new javax.swing.JButton();
         lblAgregarAlbum = new javax.swing.JLabel();
-        lblAnio = new javax.swing.JLabel();
         lblNombre1 = new javax.swing.JLabel();
-        lblArtistas = new javax.swing.JLabel();
+        lblAnio = new javax.swing.JLabel();
         lblDisquera = new javax.swing.JLabel();
-        txtAnio = new javax.swing.JTextField();
+        lblArtistas = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
+        txtAnio = new javax.swing.JTextField();
         txtDisquera = new javax.swing.JTextField();
         txtArtista = new javax.swing.JTextField();
+        btnAgregar = new javax.swing.JButton();
         btnAniadir = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         lblArtistasComa = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(400, 150));
-        setPreferredSize(new java.awt.Dimension(451, 450));
-        setResizable(false);
-        setSize(new java.awt.Dimension(450, 450));
+        setBackground(new java.awt.Color(128, 205, 228));
+        setSize(new java.awt.Dimension(500, 500));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
+        jPanel1.setBackground(new java.awt.Color(29, 79, 128));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
-        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/flecha-atras.png"))); // NOI18N
-        btnVolver.setBorder(null);
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+        lblAgregarAlbum.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        lblAgregarAlbum.setForeground(new java.awt.Color(255, 255, 255));
+        lblAgregarAlbum.setText("Añadir Album ");
+        jPanel1.add(lblAgregarAlbum, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+
+        lblNombre1.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lblNombre1.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombre1.setText("Nombre :");
+        jPanel1.add(lblNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        lblAnio.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lblAnio.setForeground(new java.awt.Color(51, 51, 51));
+        lblAnio.setText("Año lanzamiento  :");
+        jPanel1.add(lblAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+
+        lblDisquera.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lblDisquera.setForeground(new java.awt.Color(51, 51, 51));
+        lblDisquera.setText("Disquera  :");
+        jPanel1.add(lblDisquera, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+
+        lblArtistas.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lblArtistas.setForeground(new java.awt.Color(51, 51, 51));
+        lblArtistas.setText("Artistas  :");
+        jPanel1.add(lblArtistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+
+        txtNombre.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
+        txtNombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
-
-        lblAgregarAlbum.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
-        lblAgregarAlbum.setText("Agregar nuevo álbum");
-
-        lblAnio.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        lblAnio.setText("Anio de lanzamiento");
-
-        lblNombre1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        lblNombre1.setText("Nombre");
-
-        lblArtistas.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        lblArtistas.setText("Artistas");
-
-        lblDisquera.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        lblDisquera.setText("Disquera");
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 120, 20));
 
         txtAnio.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
 
@@ -189,11 +198,16 @@ public class AgregarAlbum extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -277,8 +291,17 @@ public class AgregarAlbum extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAniadir;
-    private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuItem jMIAgregarCancion;
+    private javax.swing.JMenuItem jMIBuscarAlbum;
+    private javax.swing.JMenuItem jMIDetalleAlbum;
+    private javax.swing.JMenuItem jMISalir;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTañadirAlbum;
     private javax.swing.JLabel lblAgregarAlbum;
     private javax.swing.JLabel lblAnio;
     private javax.swing.JLabel lblArtistas;

@@ -31,6 +31,7 @@ public class AgregarCancion extends javax.swing.JFrame {
     }
     public AgregarCancion() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -51,6 +52,8 @@ public class AgregarCancion extends javax.swing.JFrame {
         btnAniadir = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         txtArtistas = new java.awt.TextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         lblAgregarCancion = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
@@ -64,7 +67,6 @@ public class AgregarCancion extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
 
-        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/flecha-atras.png"))); // NOI18N
         btnVolver.setBorder(null);
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +118,6 @@ public class AgregarCancion extends javax.swing.JFrame {
             }
         });
 
-        btnAniadir.setBackground(new java.awt.Color(255, 255, 255));
         btnAniadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
         btnAniadir.setBorder(null);
 
@@ -201,22 +202,42 @@ public class AgregarCancion extends javax.swing.JFrame {
                 .addGap(46, 46, 46))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 150));
         setSize(new java.awt.Dimension(450, 450));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAgregarCancion.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
+        lblAgregarCancion.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        lblAgregarCancion.setForeground(new java.awt.Color(255, 255, 255));
         lblAgregarCancion.setText("Agregar nueva cancion");
+        jPanel2.add(lblAgregarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 25, -1, -1));
 
-        lblTitulo.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        lblTitulo.setText("Titulo");
+        lblTitulo.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo.setText("Titulo  :");
+        jPanel2.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 109, -1, -1));
 
         txtDuracion.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
 
-        lblDuracion.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        lblDuracion.setText("Duracion (min)");
+        lblDuracion.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        lblDuracion.setForeground(new java.awt.Color(51, 51, 51));
+        lblDuracion.setText("Duracion (min) :");
+        jPanel2.add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 164, -1, -1));
 
         txtTitulo.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
 
@@ -228,7 +249,7 @@ public class AgregarCancion extends javax.swing.JFrame {
             }
         });
 
-        btnVolverCan.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolverCan.setBackground(new java.awt.Color(189, 205, 228));
         btnVolverCan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/flecha-atras.png"))); // NOI18N
         btnVolverCan.setBorder(null);
         btnVolverCan.addActionListener(new java.awt.event.ActionListener() {
@@ -308,7 +329,9 @@ public class AgregarCancion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,7 +342,7 @@ public class AgregarCancion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Principal pantalla=new Principal();
+        BuscarAlbum pantalla=new BuscarAlbum();
         pantalla.setVisible(true);
         dispose();
 
@@ -413,8 +436,20 @@ public class AgregarCancion extends javax.swing.JFrame {
     private javax.swing.JButton btnAniadir;
     private javax.swing.JButton btnVolver;
     private javax.swing.JButton btnVolverCan;
+    private javax.swing.JLabel jLagregarCancion;
+    private javax.swing.JMenuItem jMIAgregarAlbum;
+    private javax.swing.JMenuItem jMIBuscarAlbum;
+    private javax.swing.JMenuItem jMIDetalleAlbum;
+    private javax.swing.JMenuItem jMISalir;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableCanciones;
     private javax.swing.JLabel lblAgregarAlbum;
     private javax.swing.JLabel lblAgregarCancion;
     private javax.swing.JLabel lblAnio;
