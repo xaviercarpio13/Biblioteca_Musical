@@ -85,15 +85,16 @@
                           <Component id="lblAgregarAlbum" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                          <Component id="txtArtistas" min="-2" pref="318" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                           <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="30" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="lblArtistasComa" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -125,17 +126,22 @@
                       <Component id="lblDisquera" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtDisquera" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnAniadir" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblArtistasComa" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblArtistas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtArtista" alignment="3" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnAniadir" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="txtArtistas" min="-2" pref="62" max="-2" attributes="0"/>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
+                  <EmptySpace pref="114" max="32767" attributes="0"/>
                   <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
@@ -205,9 +211,6 @@
               <Font name="Gadugi" size="11" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAnioActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNombre">
           <Properties>
@@ -215,9 +218,6 @@
               <Font name="Gadugi" size="11" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDisquera">
           <Properties>
@@ -225,9 +225,6 @@
               <Font name="Gadugi" size="11" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDisqueraActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtArtista">
           <Properties>
@@ -235,9 +232,6 @@
               <Font name="Gadugi" size="11" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtArtistaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAniadir">
           <Properties>
@@ -251,6 +245,9 @@
               <Border info="null"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAniadirActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAgregar">
           <Properties>
@@ -259,22 +256,16 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="java.awt.TextArea" name="txtArtistas">
+        <Component class="javax.swing.JLabel" name="lblArtistasComa">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="columns" type="int" value="1"/>
-            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
-            </Property>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="enabled" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Gadugi" size="12" style="0"/>
+              <Font name="Tahoma" size="8" style="2"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+            <Property name="text" type="java.lang.String" value="Ingresa los artistas separados por comas"/>
           </Properties>
         </Component>
       </SubComponents>
