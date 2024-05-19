@@ -1,16 +1,33 @@
 
 package GUI;
 
-import Clases.OpcionesMenu;
+import Clases.Album;
+import Clases.Biblioteca;
+import Clases.Cancion;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 public class AgregarCancion extends javax.swing.JFrame {
-
-    private String nombre;
+    Album al = new Album();
+    List<Cancion> c = new ArrayList<>();
+    Biblioteca b;
+    List<Album> albumnes = new ArrayList<>();
+   
     
-    public AgregarCancion(String nombreAlbum) {
-        this.nombre=nombreAlbum;
+    public AgregarCancion(Album alb,Biblioteca bl) {
         initComponents();
-        System.out.println("nombre de album "+nombreAlbum);
+        //obtengo info
+        lblnombreAlbum.setText(alb.getNombreAlbum());
+        
+        b = new Biblioteca();
+        albumnes = bl.obtenerTodosAlbums();
+        b.setAlbumnes(albumnes);
+        albumnes = b.obtenerTodosAlbums();
+        al = alb;
+        
+        c = al.obtenerListaCanciones();
+        
     }
     public AgregarCancion() {
         initComponents();
@@ -42,20 +59,10 @@ public class AgregarCancion extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         txtDuracion = new javax.swing.JTextField();
         lblDuracion = new javax.swing.JLabel();
-        txtTituloCan = new javax.swing.JTextField();
-        btnAniadirCan = new javax.swing.JButton();
+        txtTitulo = new javax.swing.JTextField();
         btnAgregarCan = new javax.swing.JButton();
         btnVolverCan = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableCanciones = new javax.swing.JTable();
-        jLagregarCancion = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMISalir = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMIAgregarAlbum = new javax.swing.JMenuItem();
-        jMIBuscarAlbum = new javax.swing.JMenuItem();
-        jMIDetalleAlbum = new javax.swing.JMenuItem();
+        lblnombreAlbum = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
@@ -226,47 +233,21 @@ public class AgregarCancion extends javax.swing.JFrame {
         jPanel2.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 109, -1, -1));
 
         txtDuracion.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
-        txtDuracion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDuracionActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 165, 127, -1));
 
         lblDuracion.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
         lblDuracion.setForeground(new java.awt.Color(51, 51, 51));
         lblDuracion.setText("Duracion (min) :");
         jPanel2.add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 164, -1, -1));
 
-        txtTituloCan.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
-        txtTituloCan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTituloCanActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtTituloCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 110, 127, -1));
+        txtTitulo.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
 
-        btnAniadirCan.setBackground(new java.awt.Color(189, 205, 228));
-        btnAniadirCan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/simboloSuma.png"))); // NOI18N
-        btnAniadirCan.setBorder(null);
-        btnAniadirCan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAniadirCanActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnAniadirCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 164, 31, 22));
-
-        btnAgregarCan.setBackground(new java.awt.Color(189, 205, 228));
-        btnAgregarCan.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        btnAgregarCan.setForeground(new java.awt.Color(51, 51, 51));
+        btnAgregarCan.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
         btnAgregarCan.setText("Agregar");
-        btnAgregarCan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 204, 255), null, null));
         btnAgregarCan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarCanActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAgregarCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 80, 30));
 
         btnVolverCan.setBackground(new java.awt.Color(189, 205, 228));
         btnVolverCan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/flecha-atras.png"))); // NOI18N
@@ -276,85 +257,73 @@ public class AgregarCancion extends javax.swing.JFrame {
                 btnVolverCanActionPerformed(evt);
             }
         });
-        jPanel2.add(btnVolverCan, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 27, 25));
 
-        jTableCanciones.setBackground(new java.awt.Color(189, 205, 228));
-        jTableCanciones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Titulo", "Duración"
-            }
-        ));
-        jScrollPane2.setViewportView(jTableCanciones);
+        lblnombreAlbum.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
+        lblnombreAlbum.setText("ALBUM");
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 193, 284));
-
-        jLagregarCancion.setBackground(new java.awt.Color(204, 204, 255));
-        jLagregarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/descarga (13).jpeg"))); // NOI18N
-        jPanel2.add(jLagregarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 370));
-
-        jMenuBar1.setBackground(new java.awt.Color(189, 205, 228));
-
-        jMenu1.setForeground(new java.awt.Color(51, 51, 51));
-        jMenu1.setText("Salir");
-
-        jMISalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMISalir.setText("Salir");
-        jMISalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMISalirActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMISalir);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setBackground(new java.awt.Color(189, 205, 228));
-        jMenu2.setForeground(new java.awt.Color(51, 51, 51));
-        jMenu2.setText("Opciones");
-
-        jMIAgregarAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMIAgregarAlbum.setBackground(new java.awt.Color(189, 205, 228));
-        jMIAgregarAlbum.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jMIAgregarAlbum.setForeground(new java.awt.Color(51, 51, 51));
-        jMIAgregarAlbum.setText("Agregar-Album");
-        jMIAgregarAlbum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIAgregarAlbumActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMIAgregarAlbum);
-
-        jMIBuscarAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMIBuscarAlbum.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jMIBuscarAlbum.setForeground(new java.awt.Color(51, 51, 51));
-        jMIBuscarAlbum.setText("Buscar-Album");
-        jMIBuscarAlbum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIBuscarAlbumActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMIBuscarAlbum);
-
-        jMIDetalleAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMIDetalleAlbum.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
-        jMIDetalleAlbum.setForeground(new java.awt.Color(51, 51, 51));
-        jMIDetalleAlbum.setText("Detalle-Album");
-        jMIDetalleAlbum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIDetalleAlbumActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMIDetalleAlbum);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(lblAgregarCancion))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(btnAgregarCan)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVolverCan, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(128, 128, 128)
+                        .addComponent(lblnombreAlbum)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitulo)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblDuracion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(67, 67, 67))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(196, Short.MAX_VALUE)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(68, 68, 68)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnVolverCan, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblnombreAlbum)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(lblAgregarCancion)
+                .addGap(29, 29, 29)
+                .addComponent(lblTitulo)
+                .addGap(39, 39, 39)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDuracion)
+                    .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAgregarCan)
+                .addContainerGap(82, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(140, 140, 140)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(141, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -395,44 +364,36 @@ public class AgregarCancion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtArtistaActionPerformed
 
-    private void txtDuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDuracionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDuracionActionPerformed
-
-    private void txtTituloCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloCanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTituloCanActionPerformed
-
     private void btnVolverCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverCanActionPerformed
-        BuscarAlbum pantalla=new BuscarAlbum();
+        Principal pantalla=new Principal(b);
         pantalla.setVisible(true);
         dispose();
-
     }//GEN-LAST:event_btnVolverCanActionPerformed
 
-    private void btnAniadirCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadirCanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAniadirCanActionPerformed
-
     private void btnAgregarCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCanActionPerformed
-        // TODO add your handling code here:
+        //datos
+        String nombreCancion = txtTitulo.getText().trim();
+        int duracion = Integer.parseInt(txtDuracion.getText().trim());
+        
+        //creo cancion
+        Cancion cc = new Cancion(nombreCancion, duracion);
+        //c.add(cc);
+        try{
+            if(al.esDuplicado(cc)){
+                JOptionPane.showInternalMessageDialog(null, "Cancion Duplicada, Intenta de nuevo");
+                txtTitulo.setText("");
+                txtDuracion.setText("");
+            }else{
+                al.agregarCancion(cc);
+                JOptionPane.showInternalMessageDialog(null, "Cancion guardada");
+                Principal pantalla=new Principal(b);
+                pantalla.setVisible(true);
+                dispose();
+            }
+        }catch(Exception e){
+            JOptionPane.showInternalMessageDialog(null, "Error");
+        }      
     }//GEN-LAST:event_btnAgregarCanActionPerformed
-
-    private void jMIAgregarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAgregarAlbumActionPerformed
-       OpcionesMenu.agregarAlbum(this);
-    }//GEN-LAST:event_jMIAgregarAlbumActionPerformed
-
-    private void jMIBuscarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBuscarAlbumActionPerformed
-      OpcionesMenu.buscarAlbum(this);
-    }//GEN-LAST:event_jMIBuscarAlbumActionPerformed
-
-    private void jMIDetalleAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIDetalleAlbumActionPerformed
-     OpcionesMenu.detalleAlbum(this);
-    }//GEN-LAST:event_jMIDetalleAlbumActionPerformed
-
-    private void jMISalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISalirActionPerformed
-       OpcionesMenu.salir(this);
-    }//GEN-LAST:event_jMISalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -473,7 +434,6 @@ public class AgregarCancion extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAgregarCan;
     private javax.swing.JButton btnAniadir;
-    private javax.swing.JButton btnAniadirCan;
     private javax.swing.JButton btnVolver;
     private javax.swing.JButton btnVolverCan;
     private javax.swing.JLabel jLagregarCancion;
@@ -498,12 +458,13 @@ public class AgregarCancion extends javax.swing.JFrame {
     private javax.swing.JLabel lblDuracion;
     private javax.swing.JLabel lblNombre1;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblnombreAlbum;
     private javax.swing.JTextField txtAnio;
     private javax.swing.JTextField txtArtista;
     private java.awt.TextArea txtArtistas;
     private javax.swing.JTextField txtDisquera;
     private javax.swing.JTextField txtDuracion;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTituloCan;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }
