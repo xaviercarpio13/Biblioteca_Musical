@@ -245,6 +245,18 @@ String nombreUsuario = "Xavier";
         dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+
+    private void txtAnioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAnioFocusGained
+        if (txtAnio.getText().equals("Filtro por anio")) {
+            txtAnio.setText("");
+            txtAnio.setForeground(Color.BLACK);
+            //prueba
+        }
+
+
+    }//GEN-LAST:event_txtAnioFocusGained
+
+
     private void btnLupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLupaActionPerformed
         int anio = Integer.parseInt(txtAnio.getText().trim());
         
