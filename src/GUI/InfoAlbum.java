@@ -47,6 +47,7 @@ public class InfoAlbum extends javax.swing.JFrame {
             m.addRow(fila);
         }
         
+        
 
         tblAlbum.setModel(m);
     }
