@@ -27,6 +27,8 @@ public class AgregarCancion extends javax.swing.JFrame {
         al = alb;
         
         c = al.obtenerListaCanciones();
+        jTextArea1.setText(al.toString());
+        //c = al.obtenerListaCanciones();
         
     }
     public AgregarCancion() {
@@ -60,6 +62,8 @@ public class AgregarCancion extends javax.swing.JFrame {
         btnAgregarCan = new javax.swing.JButton();
         btnVolverCan = new javax.swing.JButton();
         lblnombreAlbum = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
@@ -214,11 +218,21 @@ public class AgregarCancion extends javax.swing.JFrame {
         lblTitulo.setText("Titulo");
 
         txtDuracion.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
+        txtDuracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDuracionActionPerformed(evt);
+            }
+        });
 
         lblDuracion.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         lblDuracion.setText("Duracion (min)");
 
         txtTitulo.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
+        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTituloActionPerformed(evt);
+            }
+        });
 
         btnAgregarCan.setFont(new java.awt.Font("Gadugi", 0, 11)); // NOI18N
         btnAgregarCan.setText("Agregar");
@@ -240,6 +254,10 @@ public class AgregarCancion extends javax.swing.JFrame {
         lblnombreAlbum.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
         lblnombreAlbum.setText("ALBUM");
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -255,6 +273,7 @@ public class AgregarCancion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVolverCan, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,7 +315,8 @@ public class AgregarCancion extends javax.swing.JFrame {
                     .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAgregarCan)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(140, 140, 140)
@@ -341,10 +361,19 @@ public class AgregarCancion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtArtistaActionPerformed
 
+    private void txtDuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDuracionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDuracionActionPerformed
+
+    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTituloActionPerformed
+
     private void btnVolverCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverCanActionPerformed
         Principal pantalla=new Principal(b);
         pantalla.setVisible(true);
         dispose();
+
     }//GEN-LAST:event_btnVolverCanActionPerformed
 
     private void btnAgregarCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCanActionPerformed
@@ -361,15 +390,24 @@ public class AgregarCancion extends javax.swing.JFrame {
                 txtTitulo.setText("");
                 txtDuracion.setText("");
             }else{
+                c.add(cc);
                 al.agregarCancion(cc);
+                jTextArea1.setText(al.toString());
                 JOptionPane.showInternalMessageDialog(null, "Cancion guardada");
-                Principal pantalla=new Principal(b);
-                pantalla.setVisible(true);
-                dispose();
+               // Principal pantalla=new Principal(b);
+               // pantalla.setVisible(true);
+               // dispose();
             }
         }catch(Exception e){
             JOptionPane.showInternalMessageDialog(null, "Error");
-        }      
+            jTextArea1.setText(e.toString());
+            
+        }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btnAgregarCanActionPerformed
 
     /**
@@ -415,6 +453,8 @@ public class AgregarCancion extends javax.swing.JFrame {
     private javax.swing.JButton btnVolverCan;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblAgregarAlbum;
     private javax.swing.JLabel lblAgregarCancion;
     private javax.swing.JLabel lblAnio;

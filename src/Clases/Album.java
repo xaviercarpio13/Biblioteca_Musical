@@ -19,16 +19,15 @@ public class Album {
         this.nombreAlbum = nombreAlbum;
         this.anioLanzamiento = anioLanzamiento;
         this.Disquera = Disquera;
-        this.listaArtistas = listaArtistas;
-        this.listaCanciones = new ArrayList<>();
+        this.listaArtistas = new ArrayList<>();
     }
     
     public Album(String nombreAlbum, int anioLanzamiento, String Disquera,List<Artista> listaArtistas ,List<Cancion> listaCanciones) {
         this.nombreAlbum = nombreAlbum;
         this.anioLanzamiento = anioLanzamiento;
         this.Disquera = Disquera;
-        this.listaArtistas = listaArtistas;
-        this.listaCanciones = listaCanciones != null ? listaCanciones : new ArrayList<>();
+        this.listaArtistas = new ArrayList<>();
+        this.listaCanciones = listaCanciones;
     }
 
     //getter and setters

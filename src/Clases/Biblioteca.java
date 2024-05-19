@@ -1,7 +1,12 @@
 package Clases;
 
+import Conexion.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class Biblioteca {
     private List<Album> albumnes;
